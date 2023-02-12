@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 2</title>
+    <style>
+        .container {
+            width: 400px;
+            height: 200px;
+            background-color: aquamarine;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="sb-container"></div>
+    <button id="changeColor">changeColor</button>
+    <button id="addChild">addChild</button>
+    <button id="removeChild">removeChild</button>
+    <script>
+
+        //changeColor
+        let colors = ['blue', 'yellow' , 'green', 'voilet'];
+        let btn = document.getElementById('changeColor');
+
+        btn.addEventListener('click' , function() {
+            let random = colors[Math.floor(Math.random()*colors.length)];
+            let container = document.getElementById('sb-container');
+            container.style.background=random;
+        })
+        
+        //add square box
+        let add = document.getElementById('addChild');
+        let squareDiv = document.createElement('div');
+        squareDiv.style.cssText='width:100px; height:100px; background: purple';
+
+        add.addEventListener('click' , function() {
+            let container = document.getElementById('sb-container');
+            container.appendChild(squareDiv);
+        })
+
+        //removeChild
+
+        let removeChild = document.getElementById('removeChild');
+        removeChild.addEventListener('click', function() {
+            let container = document.getElementById('sb-container');
+            container.removeChild(squareDiv);
+        })
+
+    </script>
+</body>
+</html>
